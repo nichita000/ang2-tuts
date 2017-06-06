@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.name = "Tom";
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'root',
-        template: '<h1>Hello , {{name}} !</h1>' +
-            '<child-comp [lame]="Nichita" [age]="19"></child-comp>'
+        template: "<child-comp [(userName)]=\"name\"></child-comp>\n    <div>\u0412\u044B\u0431\u0440\u0430\u043D\u043D\u043E\u0435 \u0438\u043C\u044F: {{name}}</div>"
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'root',
-    template: '<h1>Hello , {{name}} !</h1>' +
-    '<child-comp [lame]="Nichita" [age]="19"></child-comp>'
+    template: `<child-comp [(userName)]="name"></child-comp>
+    <div>Выбранное имя: {{name}}</div>`
 })
-
 export class AppComponent {
+
+    name: string = "Tom";
 }

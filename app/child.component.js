@@ -11,23 +11,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var ChildComponent = (function () {
     function ChildComponent() {
+        this.userNameChange = new core_1.EventEmitter();
     }
+    ChildComponent.prototype.onNameChange = function (model) {
+        this.userName = model;
+        this.userNameChange.emit(model);
+    };
     return ChildComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", String)
-], ChildComponent.prototype, "lame", void 0);
+], ChildComponent.prototype, "userName", void 0);
 __decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], ChildComponent.prototype, "age", void 0);
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChildComponent.prototype, "userNameChange", void 0);
 ChildComponent = __decorate([
     core_1.Component({
         selector: 'child-comp',
-        template: '<p>User name: {{lame}}</p>' +
-            '<p>User ages: {{age}}</p>',
-        styles: ['* {color: red}']
+        template: "<input [ngModel]=\"userName\" (ngModelChange)=\"onNameChange($event)\" />"
     })
 ], ChildComponent);
 exports.ChildComponent = ChildComponent;
